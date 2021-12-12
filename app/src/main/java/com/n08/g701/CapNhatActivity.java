@@ -55,7 +55,7 @@ public class CapNhatActivity extends AppCompatActivity {
 
     private void getData() {
         Intent intent= getIntent();
-        selectedProduct= (Product) intent.getSerializableExtra("san pham");
+        selectedProduct= (Product) intent.getSerializableExtra("San pham");
         edtTen.setText(selectedProduct.getProductName());
         edtHangSX.setText(selectedProduct.getProductHangSanXuat());
         edtGia.setText(String.valueOf(selectedProduct.getProductPrice()));

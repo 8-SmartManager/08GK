@@ -1,14 +1,12 @@
 package com.n08.g701;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,12 +24,12 @@ public class MainActivity extends AppCompatActivity {
     ProductAdapter adapter;
     ArrayList<Product> products;
     public static  MyDatabase db;
-
+    Product selectedProduct;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setContentView(R.layout.activity_chi_tiet);
+        //setContentView(R.layout.activity_chi_tiet);
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
@@ -40,16 +38,8 @@ public class MainActivity extends AppCompatActivity {
         linkViews();
         prepareData();
 
-
         addEvent();
     }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        loadData();
-        super.onCreate(savedInstanceState, persistentState);
-    }
-
     private void loadData(){
         adapter = new ProductAdapter(MainActivity.this, R.layout.item_layout,getDataFromDB());
         lvProduct.setAdapter(adapter);
@@ -61,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(MainActivity.this, ChiTietActivity.class);
                 adapter= new ProductAdapter(MainActivity.this,R.layout.activity_chi_tiet,products);
-                Product goal= (Product) adapter.getItem(i);
-                intent.putExtra("San pham",products);
+                Product product= (Product) adapter.getItem(i);
+                intent.putExtra("San pham",product);
                 startActivity(intent);
             }
         });
@@ -70,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        prepareData();
+        loadData();
     }
     private ArrayList<Product> getDataFromDB() {
         products = new ArrayList<>();

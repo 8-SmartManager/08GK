@@ -35,7 +35,7 @@ public class ThemMoiActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_them_moi);
-        setContentView(R.layout.activity_chi_tiet);
+        //setContentView(R.layout.activity_chi_tiet);
         Drawable drawable=getResources().getDrawable(R.drawable.ic_back);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(drawable);
