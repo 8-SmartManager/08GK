@@ -62,8 +62,7 @@ public class MyDatabase extends SQLiteOpenHelper {
             execSql("INSERT INTO " + TBL_NAME + " VALUES(null, 'Laptop HP Pavilion 14-dv0041TU (2H3L0PA)', 'HP', 250000, "+ R.drawable.iphone13+" )" );
             execSql("INSERT INTO " + TBL_NAME + " VALUES(null, 'Laptop DEll', 'Dell', 250000, "+ R.drawable.asus+" )" );
 
-//            execSql("INSERT INTO " + TBL_NAME + " VALUES(null, 'Đọc Vị Bất Kỳ Ai', 'NXB Bình Minh', 2, 250000, "+ R.drawable.doc_vi_bat_ky_ai +" )" );
-//            execSql("INSERT INTO " + TBL_NAME + " VALUES(null, 'Trên Đường Băng', 'NXB Khánh Hòa', 2, 250000, "+ R.drawable.tren_duong_bang +" )" );
+//
 
         }
     }

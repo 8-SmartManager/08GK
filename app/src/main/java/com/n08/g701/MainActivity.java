@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         linkViews();
         prepareData();
 
-        getDataFromDB();
+
         addEvent();
     }
 
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void prepareData() {
         db= new MyDatabase(this);
-//        db.createSomeData();
+        db.createSomeData();
     }
 
     private void linkViews() {
