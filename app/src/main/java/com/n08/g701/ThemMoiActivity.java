@@ -1,12 +1,15 @@
 package com.n08.g701;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -32,6 +35,12 @@ public class ThemMoiActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_them_moi);
+        setContentView(R.layout.activity_chi_tiet);
+        Drawable drawable=getResources().getDrawable(R.drawable.ic_back);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(drawable);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Thêm mới sản phẩm");
         linkViews();
         getData();
         imvPhoto.setImageResource(R.drawable.iphone13);
@@ -121,5 +130,15 @@ public class ThemMoiActivity extends AppCompatActivity {
 
         imvPhoto = findViewById(R.id.imvPhoto);
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
