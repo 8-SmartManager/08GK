@@ -59,8 +59,9 @@ public class MyDatabase extends SQLiteOpenHelper {
     public void createSomeData(){
         int count = getCount();
         if(count == 0){
-//            execSql("INSERT INTO " + TBL_NAME + " VALUES(null, 'Laptop HP Pavilion 14-dv0041TU (2H3L0PA)', 'HP', 250000, "+ R.drawable.chu_nghia_khac_ky +" )" );
-//            execSql("INSERT INTO " + TBL_NAME + " VALUES(null, 'Đắc Nhân Tâm', 'NXB Văn Hóa', 2, 250000, "+ R.drawable.dac_nhan_tam +" )" );
+            execSql("INSERT INTO " + TBL_NAME + " VALUES(null, 'Laptop HP Pavilion 14-dv0041TU (2H3L0PA)', 'HP', 250000, "+ R.drawable.iphone13+" )" );
+            execSql("INSERT INTO " + TBL_NAME + " VALUES(null, 'Laptop DEll', 'Dell', 250000, "+ R.drawable.asus+" )" );
+
 //            execSql("INSERT INTO " + TBL_NAME + " VALUES(null, 'Đọc Vị Bất Kỳ Ai', 'NXB Bình Minh', 2, 250000, "+ R.drawable.doc_vi_bat_ky_ai +" )" );
 //            execSql("INSERT INTO " + TBL_NAME + " VALUES(null, 'Trên Đường Băng', 'NXB Khánh Hòa', 2, 250000, "+ R.drawable.tren_duong_bang +" )" );
 

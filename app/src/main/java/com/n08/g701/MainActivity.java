@@ -1,11 +1,13 @@
 package com.n08.g701;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,17 +25,24 @@ public class MainActivity extends AppCompatActivity {
     ProductAdapter adapter;
     ArrayList<Product> products;
     public static  MyDatabase db;
-    Product selectedProduct;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         linkViews();
         prepareData();
-        loadData();
+
         getDataFromDB();
         addEvent();
     }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        loadData();
+        super.onCreate(savedInstanceState, persistentState);
+    }
+
     private void loadData(){
         adapter = new ProductAdapter(MainActivity.this, R.layout.item_layout,getDataFromDB());
         lvProduct.setAdapter(adapter);
@@ -69,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void prepareData() {
         db= new MyDatabase(this);
-        db.createSomeData();
+//        db.createSomeData();
     }
 
     private void linkViews() {
@@ -85,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId()==R.id.mnAddTask){
-            Intent intent = new Intent(MainActivity.this, ChiTietActivity.class);
+            Intent intent = new Intent(MainActivity.this, ThemMoiActivity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

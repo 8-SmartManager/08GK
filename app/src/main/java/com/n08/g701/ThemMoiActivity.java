@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -32,8 +33,13 @@ public class ThemMoiActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_them_moi);
         linkViews();
+        getData();
         imvPhoto.setImageResource(R.drawable.iphone13);
         addEvent();
+    }
+
+    private void getData() {
+        Intent intent= getIntent();
     }
 
     private void addEvent() {
@@ -88,7 +94,7 @@ public class ThemMoiActivity extends AppCompatActivity {
                 }
                 else {
                     try {
-                        MainActivity.db.execSql("INSERT INTO "+MyDatabase.TBL_NAME+" VALUES(null, '"+name+"', '"+hangSX+"',"+gia+","+imageId+",)");
+                        MainActivity.db.execSql("INSERT INTO "+MyDatabase.TBL_NAME+" VALUES(null, '"+name+"', '"+hangSX+"','"+gia+"',"+imageId+",)");
                         Toast.makeText(ThemMoiActivity.this, "Success!", Toast.LENGTH_SHORT).show();
                         finish();
                     }
