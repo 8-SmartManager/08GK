@@ -7,7 +7,7 @@
         android:id="@+id/imvThumb"
         android:layout_width="120dp"
         android:layout_height="150dp"
-        android:src="@drawable/da"
+        android:src="@drawable/iphone"
         />
 
     <LinearLayout

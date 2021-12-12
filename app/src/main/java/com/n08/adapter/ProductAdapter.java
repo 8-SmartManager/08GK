@@ -1,4 +1,4 @@
-package com.n08.g701.adapter;
+package com.n08.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,8 +10,7 @@ import android.widget.TextView;
 
 
 import com.n08.g701.R;
-import com.n08.g701.model.Product;
-
+import com.n08.model.Product;
 import java.util.List;
 
 public class ProductAdapter extends BaseAdapter {
