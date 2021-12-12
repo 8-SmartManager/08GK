@@ -10,13 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.08GK">
         <activity android:name=".MainActivity" android:exported="true">
+
+        </activity>
+        <activity android:name=".ChiTietActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".ChiTietActivity" android:exported="true">
 
         </activity>
         <activity
@@ -27,6 +28,10 @@
             android:exported="true" >
 
         </activity>
+
+
+
+
     </application>
 
 </manifest>

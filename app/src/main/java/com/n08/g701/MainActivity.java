@@ -30,24 +30,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         linkViews();
         prepareData();
-        loadData();
+
         getDataFromDB();
         addEvent();
-    }
-    private void loadData(){
-        adapter = new ProductAdapter(MainActivity.this, R.layout.item_layout,getDataFromDB());
-        lvProduct.setAdapter(adapter);
     }
 
     private void addEvent() {
         lvProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(MainActivity.this, ChiTietActivity.class);
-                adapter= new ProductAdapter(MainActivity.this,R.layout.activity_chi_tiet,products);
-                Product goal= (Product) adapter.getItem(i);
-                intent.putExtra("San pham",products);
-                startActivity(intent);
+                selectedProduct = (Product) adapter.getItem(i);
+
             }
         });
     }
@@ -56,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         prepareData();
     }
+
     private ArrayList<Product> getDataFromDB() {
         products = new ArrayList<>();
         Cursor cursor = db.getData("SELECT * FROM "+MyDatabase.TBL_NAME);
@@ -69,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void prepareData() {
         db= new MyDatabase(this);
-        db.createSomeData();
+//        db.createSomeData();
     }
 
     private void linkViews() {
