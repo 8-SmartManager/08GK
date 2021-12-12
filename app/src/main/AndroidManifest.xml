@@ -17,8 +17,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".CapNhatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ThemMoiActivity"
+            android:exported="true" >
 
         </activity>
     </application>
