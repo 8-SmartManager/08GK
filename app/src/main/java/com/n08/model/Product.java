@@ -1,4 +1,4 @@
-package com.n08.g701.model;
+package com.n08.model;
 
 public class Product {
     private int productId;
