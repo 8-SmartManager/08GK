@@ -43,17 +43,17 @@ public class ThemMoiActivity extends AppCompatActivity {
                 Dialog dialog= new Dialog(ThemMoiActivity.this);
                 dialog.setContentView(R.layout.dialog_image);
                 GridView gvImage=dialog.findViewById(R.id.gvImage);
-                ArrayList<Image_Product> image_beers= new ArrayList<>();
-                image_beers.add(new Image_Product(R.drawable.asus));
-                image_beers.add(new Image_Product(R.drawable.galaxy_a12));
-                image_beers.add(new Image_Product(R.drawable.galaxy_a52));
-                image_beers.add(new Image_Product(R.drawable.iphone13));
-                image_beers.add(new Image_Product(R.drawable.asus));
-                image_beers.add(new Image_Product(R.drawable.galaxy_a12));
-                image_beers.add(new Image_Product(R.drawable.galaxy_a52));
-                image_beers.add(new Image_Product(R.drawable.iphone13));
+                ArrayList<Image_Product> image_products= new ArrayList<>();
+                image_products.add(new Image_Product(R.drawable.asus));
+                image_products.add(new Image_Product(R.drawable.galaxy_a12));
+                image_products.add(new Image_Product(R.drawable.galaxy_a52));
+                image_products.add(new Image_Product(R.drawable.iphone13));
+                image_products.add(new Image_Product(R.drawable.asus));
+                image_products.add(new Image_Product(R.drawable.galaxy_a12));
+                image_products.add(new Image_Product(R.drawable.galaxy_a52));
+                image_products.add(new Image_Product(R.drawable.iphone13));
 
-                ImageAdapter adapter= new ImageAdapter(ThemMoiActivity.this,R.layout.item_dialog_image,image_beers);
+                ImageAdapter adapter= new ImageAdapter(ThemMoiActivity.this,R.layout.item_dialog_image,image_products);
                 gvImage.setAdapter(adapter);
                 gvImage.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
@@ -70,9 +70,10 @@ public class ThemMoiActivity extends AppCompatActivity {
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name= edtTen.getText().toString(), des= edtGia.getText().toString();
+                String name= edtTen.getText().toString(), gia= edtGia.getText().toString(),
+                        hangSX=edtHangSX.getText().toString();
                 imageId= bi.getImageId();
-                if(name.equals("")||des.equals("")){
+                if(name.equals("")||gia.equals("")||hangSX.equals("")){
                     AlertDialog.Builder builder= new AlertDialog.Builder(ThemMoiActivity.this);
                     builder.setTitle("Lỗi!");
                     builder.setMessage("Vui lòng nhập đủ thông tin");
@@ -87,7 +88,7 @@ public class ThemMoiActivity extends AppCompatActivity {
                 }
                 else {
                     try {
-                        MainActivity.db.execSql("INSERT INTO "+MyDatabase.TBL_NAME+" VALUES(null,"+imageId+", '"+name+"', '"+des+"')");
+                        MainActivity.db.execSql("INSERT INTO "+MyDatabase.TBL_NAME+" VALUES(null, '"+name+"', '"+hangSX+"',"+gia+","+imageId+",)");
                         Toast.makeText(ThemMoiActivity.this, "Success!", Toast.LENGTH_SHORT).show();
                         finish();
                     }
